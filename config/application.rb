@@ -1,3 +1,4 @@
+
 require_relative 'boot'
 
 require "rails"
@@ -28,6 +29,12 @@ module Batorowa
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
     config.generators.system_tests = nil
+    
+    config.i18n.default_locale = :ja
+    
+    
   end
 end

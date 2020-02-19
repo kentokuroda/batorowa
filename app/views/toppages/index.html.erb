@@ -1,6 +1,12 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1> バトロワ仲間を見つけよう！</h1>
-    <%= link_to '新規登録はこちら', new_user_path, class: 'btn btn-lg btn-primary' %>
+<% if logged_in? %>
+  <p>こんにちは<%= current_user.name %>さん</p>
+    <%= link_to '募集する', new_micropost_path, class: 'btn btn-lg btn-primary' %>
+    <%= link_to '募集を探す', microposts_path, class: 'btn btn-lg btn-primary' %>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1> バトロワ仲間を見つけよう！</h1>
+      <%= link_to '新規登録はこちら', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
   </div>
-</div>
+<% end %>
