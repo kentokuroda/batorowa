@@ -1,2 +1,30 @@
-<h1>Microposts#new</h1>
-<p>Find me in app/views/microposts/new.html.erb</p>
+<div class="text-center">
+  <h1>募集条件</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @micropost, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :title, '募集タイトル' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :platform, 'プラットフォーム条件' %>
+        </br>
+        <%= f.select :platform,[["PC", "PC"], ["PS4 or Xbox", "PS4 or Xbox"], ["Switch", "Switch"], ["Mobile", "Mobile"], ["なんでもOK", "なんでもOK"]], class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, 'ひとこと' %>
+        <%= f.text_field :content, class: 'form-control' %>
+      </div>
+      
+      <%= f.submit '募集する', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
