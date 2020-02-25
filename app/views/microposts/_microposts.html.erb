@@ -1,18 +1,21 @@
 <ul class="list-unstyled">
   <% microposts.each do |micropost| %>
     <li class="media mb-3">
-      <img class="mr-2 rounded" src="<%= gravatar_url(micropost.user, { size: 50 }) %>" alt="">
+      <div class="img-wrapper mr-4">
+        <img class="rounded" src="<%= platform_image(micropost.user) %>" alt=""　width="60px" height="60px">
+      </div>  
       <div class="media-body">
         <div>
-          <%= link_to micropost.user.name, user_path(micropost.user) %> <span><%= date_format(micropost.created_at) %></span>
+          <%= link_to micropost.user.name, user_path(micropost.user) %> <span class="small text-muted"><%= date_format(micropost.created_at) %></span>
+          <h5><%= micropost.title %></h5>
+          <p>プラットフォーム条件：<%= micropost.platform %></p>
         </div>
         <div>
-        　<p><%= micropost.title %></p>
-          <p>プラットフォーム条件：<%= micropost.platform %></p>
           <p><%= micropost.content %></p>
         </div>
       </div>
     </li>
+    <hr>
   <% end %>
   <%= paginate microposts %>
 </ul>

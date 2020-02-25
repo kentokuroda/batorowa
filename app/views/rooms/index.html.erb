@@ -1,0 +1,21 @@
+<ul class="list-unstyled">
+  <% @anotherEntries.each do |e| %>
+    <li class="media mb-5">
+      <div class="img-wrapper mr-4">
+        <img class="rounded" src="<%= platform_image(e.user) %>" alt=""　width="60px" height="60px">
+      </div>  
+      <div class="media-body">
+        <div>
+          <%= link_to e.user.name, room_path(e.room.id) %>
+        </div>
+        <div>
+          <% if Message.find_by(id: e.room.message_ids.last).present? %>
+            <%= Message.find_by(id: e.room.message_ids.last).content %>
+          
+            <span class="small text-muted">by <%= Message.find_by(id: e.room.message_ids.last).user.name %></span>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

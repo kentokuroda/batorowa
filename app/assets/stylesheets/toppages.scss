@@ -1,0 +1,70 @@
+.btn-circle-3d {
+  display: inline-block;
+  text-decoration: none;
+  background: #708090;
+  color: #FFF;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #708090;
+  transition: .4s;
+}
+
+.btn-circle-3d:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none;
+}
+
+.image{
+  background-image: url('door.jpg');
+  background-size: cover;
+  background-attachment: fixed; 
+  background-position: center center;
+  margin-top: -25px;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.text{
+  padding-top: 40px;
+}
+
+.btn-wrapper{
+  padding-top: 250px;
+  text-align: center;
+}
+
+#toppage {
+  /* 画像ファイルの指定 */
+  background-image: url('door.jpg');
+   
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+   
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+   
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+   
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+   
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+}
+
+#top {
+  background-color: #222;
+}
+
+#title {
+  color: #ddd;
+}

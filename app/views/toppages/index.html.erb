@@ -1,11 +1,21 @@
-<% if logged_in? %>
-  <p>こんにちは<%= current_user.name %>さん</p>
-    <%= link_to '募集する', new_micropost_path, class: 'btn btn-lg btn-primary' %>
-    <%= link_to '募集を探す', microposts_path, class: 'btn btn-lg btn-primary' %>
+<body id='toppage'>
+  <% if logged_in? %>
+    <div class='text text-center'>
+      <h2>ようこそ<%= current_user.name %>さん</h2>
+    </div>
+        
+    <div class="btn-wrapper"　style="text-align: center;">
+      <div class="center-block">
+        <%= link_to '募集する', new_micropost_path, class: 'btn-circle-3d m-5' %>
+        <%= link_to '募集を探す', microposts_path, class: 'btn-circle-3d m-5' %>
+      </div>
+    </div>
+</body>
+
 <% else %>
-  <div class="center jumbotron">
+  <div class="center jumbotron" id='top'>
     <div class="text-center">
-      <h1> バトロワ仲間を見つけよう！</h1>
+      <h2 id="title"> バトロワ仲間を見つけよう！</h2>
       <%= link_to '新規登録はこちら', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>

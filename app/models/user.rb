@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :microposts
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  
+  has_many :myrooms, through: :entries, source: :room
 end
