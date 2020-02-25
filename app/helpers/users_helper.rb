@@ -7,13 +7,13 @@ module UsersHelper
   
   def platform_image(user)
     if user.platform == "PC"
-      "/assets/PC.png"
+      "/images/PC.png"
     elsif user.platform == "PS4 or Xbox"
-      "/assets/GAME.png"
+      "/images/GAME.png"
     elsif user.platform == "Switch"
-      "/assets/switch.png"
+      "/images/switch.png"
     else
-      "/assets/Mobile.png"
+      "/images/Mobile.png"
     end
   end
 end
