@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
-  resources :users, only: [:index, :show, :new, :create] do
+  resources :users, only: [:index, :show, :new, :create, :edit, :update] do
     member do
       get :myrooms
     end
@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :microposts, only: [:index, :new, :create, :destroy]
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
+  
+  
 end

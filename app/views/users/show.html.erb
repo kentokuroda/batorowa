@@ -1,28 +1,61 @@
 <div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title"><%= @user.name %></h3>
-      </div>
-      <div class="card-body">
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
-      </div>
-    </div>
-  </aside>
-</div>
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isRoom == true %>
-      <p><a href="/rooms/<%= @roomId %>">メッセージを送る</a>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
+  <div class="offset-lg-2 col-lg-8">
+    <div class="text-center">
+      <img style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; padding-bottom :5px" src="<%= icon_image(@user) %>" alt="">
+      <% if @user.id == current_user.id %>
+        <div>
+          <%= link_to 'プロフィールを編集する', edit_user_path(current_user), class: 'btn btn-lg btn-primary mb-4 mt-4' %> 
+        </div>
+      <% else %>
+        <% if @isRoom == true %>
+        <div>
+           <a href="/rooms/<%= @roomId %>" class="mt-3 mb-3 btn btn-lg btn-primary">メッセージを送る</a>
+        </div>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: @user.id %>
+            <% end %>
+            <div>
+              <%= f.submit "メッセージを送る", class: 'btn btn-lg btn-primary mb-4 mt-4' %>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
-      <%= f.submit "メッセージを送る" %>
-    <% end %>
-  <% end %>
-<% end %>
 
-<%= link_to "戻る", microposts_path %>
+    </div>
+    <table class="table">
+      <div class="row">
+        <tr>
+          <th scope="col" class="text-nowrap">ニックネーム</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th scope="col" class="text-nowrap">メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th scope="col" class="text-nowrap">プラットフォーム</th>
+          <td><%= @user.platform %></td>
+        </tr>
+        <tr>
+          <th scope="col" class="text-nowrap">性別</td>
+          <td><%= @user.sex %></td>
+        </tr>
+        <tr>
+          <th scope="col" class="text-nowrap">場所</td>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th scope="col" class="text-nowrap">自己紹介</td>
+          <td><%= @user.introduce %></td>
+        </tr>
+      </div>
+    </table>
+
+
+    <div class="text-center">
+       <%= link_to "戻る", microposts_path %> 
+    </div>
+  </div>
+</div>

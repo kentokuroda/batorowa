@@ -2,7 +2,11 @@ class MicropostsController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :new, :create, :destroy]
   
   def index
-    @microposts = Micropost.all.order(id: :desc).page(params[:page])
+    if params[:title]
+      @microposts = Micropost.where('title LIKE ?', "%#{params[:title]}%").page(params[:page]).order(id: :desc)
+    else
+      @microposts = Micropost.all.order(id: :desc).page(params[:page])
+    end
   end
 
   def new
@@ -21,13 +25,11 @@ class MicropostsController < ApplicationController
     end
   end
   
-
-  def destroy
-  end
-  
   private
   
   def microposts_params
     params.require(:micropost).permit(:title, :platform, :content)
   end
+  
+
 end

@@ -1,5 +1,13 @@
-  <div class="row">
-    <div class="offset-1 col-sm-11">
-      <%= render 'microposts/microposts', microposts: @microposts %>
-    </div>
+<div class="row">
+  <div class="offset-1 col-sm-11">
+    <%= form_with(url: microposts_path, method: :get, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :title, "ゲームタイトル" %>
+        <%= f.text_field :title, placeholder: "(例）fortnite", class:'form-control' %>
+      </div>  
+        <%= f.submit '検索' %>
+      <% end %>  
+    <%= render 'microposts/microposts', microposts: @microposts %>
   </div>
+</div>
+  

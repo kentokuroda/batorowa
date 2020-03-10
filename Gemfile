@@ -61,3 +61,12 @@ gem 'rails-i18n', '~> 5.1'
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
+
+gem 'carrierwave'
+
+gem 'rmagick'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end

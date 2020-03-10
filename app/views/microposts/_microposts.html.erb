@@ -2,8 +2,12 @@
   <% microposts.each do |micropost| %>
     <li class="media mb-3">
       <div class="img-wrapper mr-4">
-        <img class="rounded" src="<%= platform_image(micropost.user) %>" alt=""　width="60px" height="60px">
-      </div>  
+        <img src="<%= platform_image(micropost.user) %>" alt="プラットフォームの画像"　width="60px" height="60px">
+        <div class="mt-3">
+          <%= image_tag micropost.user.image.thumb.url %>
+        </div>
+      </div>
+      
       <div class="media-body">
         <div>
           <%= link_to micropost.user.name, user_path(micropost.user) %> <span class="small text-muted"><%= date_format(micropost.created_at) %></span>

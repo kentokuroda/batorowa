@@ -33,7 +33,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
     if @user.save
       flash[:success] = 'ユーザを登録しました'
       redirect_to @user
@@ -43,6 +42,29 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    
+    if current_user == @user
+      
+      if @user.update(user_params)
+        flash[:success] = 'プロフィールを編集しました。'
+        redirect_to action: :show
+      else
+        flash.now[:danger] = '編集に失敗しました'
+        render :edit
+      end
+    
+    else
+      redirect_to root_url
+    end
+  end
+  
+  
   def myrooms
     @users = current_user
     @myrooms = @users.myrooms.page(params[:page])
@@ -51,6 +73,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :platform, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :platform, :password, :password_confirmation, :introduce, :sex, :age, :address, :image, :remember_digest)
   end
 end

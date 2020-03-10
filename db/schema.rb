@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_131743) do
+ActiveRecord::Schema.define(version: 2020_02_27_100619) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_131743) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "introduce"
+    t.integer "age"
+    t.string "sex"
+    t.string "address"
+    t.string "image"
   end
 
   add_foreign_key "entries", "rooms"

@@ -16,4 +16,12 @@ module UsersHelper
       "/images/Mobile.png"
     end
   end
+  
+  def icon_image(user)
+    if user.image?
+      user.image.url
+    else
+      "/images/default.png"
+    end 
+  end  
 end

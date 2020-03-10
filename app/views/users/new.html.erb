@@ -18,10 +18,9 @@
         <%= f.email_field :email, class: 'form-control' %>
       </div>
       
-      <div class="form-group">
-        <%= f.label :platform, 'プラットフォーム' %>
-        </br>
-        <%= f.select :platform,[["PC", "PC"], ["PS4 or Xbox", "PS4 or Xbox"], ["Switch", "Switch"], ["Mobile", "Mobile"]], class: "form-control" %>
+      <div class="col-xs-6 form-group">
+        <%= f.label :platform, 'プラットフォーム', class: 'control-label' %>
+        <%= f.select :platform, [["PC", "PC"], ["PS4 or Xbox", "PS4 or Xbox"], ["Switch", "Switch"], ["Mobile", "Mobile"]], {}, class: "form-control" %>
       </div>
 
       <div class="form-group">
