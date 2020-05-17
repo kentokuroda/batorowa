@@ -7,7 +7,6 @@
           <%= image_tag micropost.user.image.thumb.url %>
         </div>
       </div>
-      
       <div class="media-body">
         <div>
           <%= link_to micropost.user.name, user_path(micropost.user) %> <span class="small text-muted"><%= date_format(micropost.created_at) %></span>
